@@ -1,0 +1,4 @@
+# The Add Repo playbook
+- name: Add the PPA Repository
+  apt_repository:
+    repo: "ppa:webupd8team/java"

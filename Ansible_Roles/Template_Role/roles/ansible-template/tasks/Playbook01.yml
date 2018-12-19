@@ -1,0 +1,4 @@
+- name: Copy employee data file to remote machine
+  template:
+    src: employee-data.j2
+    dest: /home/vagrant/EmployeeData.txt

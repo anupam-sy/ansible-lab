@@ -1,0 +1,5 @@
+---
+# vars file for ansible-role-template
+CompanyName: "OpsTree Solutions"
+EmpName: "Anupam Yadav"
+Year: 1

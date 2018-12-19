@@ -1,0 +1,15 @@
+---
+- name: Echo output to a text file
+  shell: "echo {{ name }} > file01.txt"
+  args:
+    chdir: /home/vagrant
+
+- name: Echo output to a file
+  shell: "echo {{ company }} > file02.txt"
+  args:
+    chdir: /home/vagrant
+
+- name: Copy the file to destination
+  copy:
+    src: TestFile.txt
+    dest: /home/vagrant

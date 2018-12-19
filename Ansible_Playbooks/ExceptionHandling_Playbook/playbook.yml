@@ -1,0 +1,22 @@
+---
+  - hosts: production
+    gather_facts: true
+    become: true
+    tasks:
+      - name: Exception handler
+        block:
+          - name: Copy the file to destination
+            copy:
+              src: ./files/file01.txt
+              dest: /home/vagrant
+            when: inventory_hostname == groups["production"][0]
+
+          - name: Copy the file to destination
+            copy:
+              src: ./files/file02.txt
+              dest: /home/vagrant
+            when: inventory_hostname == groups["production"][1]   
+        rescue:
+          - name: Task to handle the exception
+            debug:
+              msg: "[ERROR]: There is an error."

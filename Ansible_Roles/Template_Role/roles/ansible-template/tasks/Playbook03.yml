@@ -1,0 +1,8 @@
+- name: Ansible template with_items example.
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0777
+  with_items:
+    - {src: "employee-data.j2", dest: "/home/vagrant/EmployeeData.txt"}
+    - {src: "template02.j2", dest: "/home/vagrant/output.txt"}

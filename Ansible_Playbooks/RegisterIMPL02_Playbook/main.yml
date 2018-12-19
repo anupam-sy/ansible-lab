@@ -1,0 +1,14 @@
+---
+  - hosts: "{{ hostgroup }}"
+    gather_facts: false
+    become: true
+    vars_files:
+      - ./inventory/vars.yml
+    tasks:
+      - stat:
+          path: /home/vagrant/anupamDB_bak.sql
+        register: result
+
+      - debug:
+          msg: "Backup file present."
+        when: result.stat.exists == true

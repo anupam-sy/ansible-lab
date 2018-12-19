@@ -1,0 +1,17 @@
+---
+  - hosts: "{{ hostgroup }}"
+    gather_facts: true
+    become: true
+    vars_files:
+      - ./inventory/vars.yml
+    tasks:
+      - name: Creating a normal user
+        user:
+          name: Anupam
+          password: "Anupam"
+          state: present
+          shell: /bin/bash
+          system: no
+          createhome: yes
+          home: /home/Anupam
+        when: ansible_distribution == "Ubuntu" and ansible_distribution_release == "trusty" and ansible_distribution_version == "14.04"

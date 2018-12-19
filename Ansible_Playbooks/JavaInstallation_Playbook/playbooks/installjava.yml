@@ -1,0 +1,8 @@
+# The Java Installation playbook
+- name: Install Java
+  apt:
+    name: "{{item}}"
+    state: present
+    update_cache: yes
+  with_items:
+    - openjdk-8-jdk

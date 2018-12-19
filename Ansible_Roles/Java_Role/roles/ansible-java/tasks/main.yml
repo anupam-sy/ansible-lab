@@ -1,0 +1,12 @@
+---
+# Add repository
+- include: repository.yml 
+
+# Java Installation
+- include: installation.yml
+  # when: ansible_distribution == "Ubuntu" and ansible_distribution_release == "trusty" and ansible_distribution_version == "14.04"
+
+# Environment variable
+- include: environment.yml
+
+

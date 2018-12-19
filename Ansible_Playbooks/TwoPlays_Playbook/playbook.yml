@@ -1,0 +1,24 @@
+---
+  - hosts: "{{ hostgroup1 }}"
+    gather_facts: true
+    become: true
+    vars_files:
+      - ./inventory/vars.yml  
+    tasks:
+      - name: Echo output to a text file
+        shell: "echo {{ name }} > file01.txt"
+        args:
+          chdir: /home/vagrant
+
+  - hosts: "{{ hostgroup2 }}"
+    gather_facts: false
+    become: true
+    vars: 
+      company: OpsTree
+    vars_files:
+      - ./inventory/vars.yml
+    tasks:
+      - name: Echo output to a file
+        shell: "echo {{ company }} > file02.txt"
+        args:
+          chdir: /home/vagrant

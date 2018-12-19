@@ -1,0 +1,5 @@
+[PROD]
+192.168.33.36 ansible_user=vagrant
+
+[NON-PROD]
+192.168.33.38 ansible_user=vagrant

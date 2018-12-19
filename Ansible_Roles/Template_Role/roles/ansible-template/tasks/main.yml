@@ -1,0 +1,9 @@
+---
+- name: First Implementation
+  include: Playbook01.yml
+
+- name: Second Implementation
+  include: Playbook02.yml
+
+- name: Third Implementation
+  include: Playbook03.yml

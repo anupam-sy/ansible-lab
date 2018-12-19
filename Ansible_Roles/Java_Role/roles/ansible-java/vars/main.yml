@@ -1,0 +1,5 @@
+---
+# vars file for java-installation-role
+java_version: oracle-java8-installer
+java_path: /usr/lib/jvm/java-8-oracle 
+

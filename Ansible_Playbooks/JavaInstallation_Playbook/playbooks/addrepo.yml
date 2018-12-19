@@ -1,0 +1,4 @@
+# The Add Repo playbook
+- name: Add repository
+  apt_repository:
+    repo: "ppa:openjdk-r/ppa"

@@ -1,0 +1,6 @@
+# The Java Installation playbook
+- name: Java installation
+  apt:
+    name: "{{ java_version }}"
+    state: present
+    update_cache: yes

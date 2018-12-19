@@ -1,0 +1,14 @@
+---
+  - hosts: PROD
+    gather_facts: False
+    become: true
+    vars_prompt:
+      - name: "Version"
+        prompt: "Which version Do you want to install?"
+        private: yes
+        default: "No_Name"
+
+    tasks:
+      - name: Ansible prompt example.
+        debug:
+          msg: "{{ Version }}"

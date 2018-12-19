@@ -1,0 +1,22 @@
+---
+  - hosts: "{{ hostgroup }}"
+    gather_facts: true
+    become: true
+    vars_files:
+      - ./inventory/vars.yml
+    tasks:
+      - name: Install MySQL on Ubuntu
+        apt:
+          name: mysql-server
+          state: present
+          update_cache: yes
+        when: ansible_distribution == "Ubuntu" and ansible_distribution_release == "trusty" and ansible_distribution_version == "14.04"
+        notify:
+          - Start MySQL
+
+    handlers:
+      - name: Start MySQL
+        service:
+          name: mysql
+          state: started
+          enabled: yes

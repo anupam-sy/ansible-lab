@@ -1,0 +1,16 @@
+---
+  - hosts: "{{ hostgroup }}"
+    gather_facts: true
+    become: true
+    vars_files:
+      - ./inventory/vars.yml
+    tasks:
+      - name: Install Essential Softwares
+        apt:
+          name: "{{ item }}"
+          state: present
+          update_cache: yes
+        with_items:
+          - curl
+          - tree
+        when: ansible_distribution == "Ubuntu" and ansible_distribution_release == "trusty" and ansible_distribution_version == "14.04"

@@ -1,0 +1,18 @@
+---
+  - hosts: "{{ hostgroup }}"
+    gather_facts: true
+    become: true
+    vars_files:
+      - ./inventory/vars.yml
+    tasks:
+      - name: Installing git package
+        apt:
+          package: git
+        tags:
+          - gitpackage
+
+      - name: Installing Tree Package
+        apt:
+          package: tree
+        tags:
+          - treepackage

@@ -1,0 +1,16 @@
+---
+  - hosts: PROD
+    become: true
+    serial: 2
+    tasks:
+      - name: Installing git package
+        apt:
+          package: git
+          state: present
+          update_cache: yes
+
+      - name: Installing Tree Package
+        apt:
+          package: tree
+          state: present
+          update_cache: yes

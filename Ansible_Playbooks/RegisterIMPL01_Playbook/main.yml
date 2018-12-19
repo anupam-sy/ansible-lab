@@ -1,0 +1,15 @@
+---
+  - hosts: "{{ hostgroup }}"
+    gather_facts: true
+    become: true
+    vars_files:
+      - ./inventory/vars.yml
+    tasks:
+      - name: Check Python Version
+        command: python --version
+        register: pythonVersion
+
+      - name: Print version
+        debug:
+          # select the individual parameter from the output by appending the name with the return value.
+          msg: "Python Version: {{ pythonVersion.stderr }}"

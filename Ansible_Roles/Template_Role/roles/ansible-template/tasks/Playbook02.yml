@@ -1,0 +1,5 @@
+- name: Ansible template loop example
+  template:
+    src: template02.j2
+    dest: /home/vagrant/output.txt
+    mode: 0777

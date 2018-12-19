@@ -1,0 +1,10 @@
+# Playbook to set environment variable
+- name: Set environment variable
+  shell: "{{ item }}"
+  with_items:
+    - "echo JAVA_HOME={{ java_path }} >> /etc/environment"
+
+- name: Source the environment file
+  shell: "source /etc/environment"
+  args:
+    executable: /bin/bash 
