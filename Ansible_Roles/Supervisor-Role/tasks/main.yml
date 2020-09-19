@@ -1,0 +1,9 @@
+---
+# tasks file for supervisor-role
+- name: Installation of Supervisor on Ubuntu
+  include: debian.yml
+  when: ansible_distribution == 'Ubuntu' and (ansible_distribution_major_version == '14' or ansible_distribution_major_version == '16')
+
+- name: Installaiton of Supervisor on CentOS
+  include: redhat.yml
+  when: ansible_distribution == "CentOS" and (ansible_distribution_major_version == '6' or ansible_distribution_major_version == '7')

@@ -1,0 +1,20 @@
+---
+- name: Install Supervisor dependencies
+  apt: name={{item}} state=present update_cache=yes
+  with_items:
+    - python-meld3
+    - supervisor
+  ignore_errors: yes
+
+- name: Starting Supervisor Service
+  service: name=supervisor state=started
+  ignore_errors: yes
+
+- name: Copy supervisord configuration file
+  template: src=long_script.conf.j2 dest=/etc/supervisor/conf.d/{{item.conf_filename}}.conf
+  with_items:
+    - "{{ ConfigVars }}"
+
+- name: Restart Supervisor Service
+  service: name=supervisor state=restarted
+  ignore_errors: yes  

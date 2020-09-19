@@ -1,0 +1,6 @@
+[program:{{ item.conf_filename }}]
+command= {{ item.command }}
+autostart=true
+autorestart=true
+stderr_logfile= {{ item.stderr_logfile }}
+stdout_logfile= {{ item.stdout_logfile }}
